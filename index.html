@@ -1,33 +1,536 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="bootstrap-5.0.2-dist/css/bootstrap.css">
-    <link rel="stylesheet" href="fontawesome-free-6.3.0-web/css/all.css">
-    <title>Document</title>
+    <link rel="stylesheet" href="custom.css">
+    <!-- fontawesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous" />
+    <title>Facebook</title>
+    <link data-default-icon="https://static.xx.fbcdn.net/rsrc.php/yD/r/d4ZIVX-5C-b.ico" data-badged-icon="https://static.xx.fbcdn.net/rsrc.php/ye/r/Ta8_J_nYekI.ico" rel="shortcut icon" href="https://static.xx.fbcdn.net/rsrc.php/yD/r/d4ZIVX-5C-b.ico">
 </head>
-<body class="bg-gradient">
-    <div class="bg-white d-flex align-items-center fixed-top shadow" style="min-height: 56px; z-index: 5;"></div>
-    <div class="container-fluid">
-        <div class="row align-items-center">
-            <!-- search -->
-            <div class="col">
-                <!-- logo -->
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z"/></svg>
 
+<body class="bg-gray postion-relative">
+    <!-- ================= Appbar ================= -->
+    <div class="bg-white d-flex align-items-center fixed-top shadow" style="min-height: 56px; z-index: 5">
+      <div class="container-fluid">
+        <div class="row align-items-center">
+          <!-- search -->
+          <div class="col d-flex align-items-center">
+            <!-- logo -->
+            <i class="fab fa-facebook text-primary" style="font-size: 3rem"></i>
+            <!-- search bar -->
+            <div class="input-group ms-2" type="button">
+              <!-- mobile -->
+              <span class="input-group-prepend d-lg-none" id="searchMenu" data-bs-toggle="dropdown" aria-expanded="false"
+                data-bs-auto-close="outside">
+                <div class="input-group-text bg-gray border-0 rounded-circle" style="min-height: 40px">
+                  <i class="fas fa-search text-muted"></i>
+                </div>
+              </span>
+              <!-- desktop -->
+              <span class="input-group-prepend d-none d-lg-block" id="searchMenu" data-bs-toggle="dropdown"
+                aria-expanded="false" data-bs-auto-close="outside">
+                <div class="input-group-text bg-gray border-0 rounded-pill" style="min-height: 40px; min-width: 230px">
+                  <i class="fas fa-search me-2 text-muted"></i>
+                  <p class="m-0 fs-7 text-muted">Tìm kiếm trên facebook</p>
+                </div>
+              </span>
+              <!-- search menu -->
             </div>
-            <!-- nav -->
-            <div class="col"></div>
-            <!-- menu -->
-            <div class="col"></div>
+          </div>
+          <!-- nav -->
+          <div class="col d-none d-xl-flex justify-content-center">
+            <!-- home -->
+            <div class="mx-4 nav__btn nav__btn-active">
+              <button type="button" class="btn px-4">
+                <i class="fas fa-home text-muted fs-4"></i>
+              </button>
+            </div>
+            <!-- market -->
+            <div class="mx-4 nav__btn">
+              <button type="button" class="btn px-4">
+                <i class="fas fa-store text-muted fs-4"></i>
+              </button>
+            </div>
+            <!-- group -->
+            <div class="mx-4 nav__btn">
+              <button type="button" class="btn px-4">
+                <i type="button" class="position-relative fas fa-users text-muted fs-4">
+                  <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="font-size: 0.5rem">
+                    100+
+                    <span class="visually-hidden"></span>
+                  </span>
+                </i>
+              </button>
+            </div>
+            <!-- gaming -->
+            <div class="mx-4 nav__btn">
+              <button type="button" class="btn px-4">
+                <i class="fas fa-gamepad text-muted fs-4"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- menus -->
+          <div class="col d-flex align-items-center justify-content-end">
+            <div class=" rounded-circle p-1 bg-gray d-flex align-items-center justify-content-center mx-2" style="width: 38px; height: 38px" type="button" id="mainMenu" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
+                <svg fill="currentColor" viewBox="0 0 44 44" width="1em" height="1em" class="x1lliihq x1k90msu x2h7rmj x1qfuztq x198g3q0 x1qx5ct2 xw4jnvo"><circle cx="7" cy="7" r="6"></circle><circle cx="22" cy="7" r="6"></circle><circle cx="37" cy="7" r="6"></circle><circle cx="7" cy="22" r="6"></circle><circle cx="22" cy="22" r="6"></circle><circle cx="37" cy="22" r="6"></circle><circle cx="7" cy="37" r="6"></circle><circle cx="22" cy="37" r="6"></circle><circle cx="37" cy="37" r="6"></circle></svg>
+          </div>
+            <div class="rounded-circle p-1 bg-gray d-flex align-items-center justify-content-center mx-2" style="width: 38px; height: 38px" type="button" id="chatMenu" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
+                <svg viewBox="0 0 28 28" alt="" class="x1lliihq x1k90msu x2h7rmj x1qfuztq x198g3q0" fill="currentColor" height="20" width="20"><path d="M14 2.042c6.76 0 12 4.952 12 11.64S20.76 25.322 14 25.322a13.091 13.091 0 0 1-3.474-.461.956 .956 0 0 0-.641.047L7.5 25.959a.961.961 0 0 1-1.348-.849l-.065-2.134a.957.957 0 0 0-.322-.684A11.389 11.389 0 0 1 2 13.682C2 6.994 7.24 2.042 14 2.042ZM6.794 17.086a.57.57 0 0 0 .827.758l3.786-2.874a.722.722 0 0 1 .868 0l2.8 2.1a1.8 1.8 0 0 0 2.6-.481l3.525-5.592a.57.57 0 0 0-.827-.758l-3.786 2.874a.722.722 0 0 1-.868 0l-2.8-2.1a1.8 1.8 0 0 0-2.6.481Z"></path></svg>
+           </div>
+            <!-- notification -->
+            <div class="rounded-circle p-1 bg-gray d-flex align-items-center justify-content-center mx-2" style="width: 38px; height: 38px" type="button" id="notMenu" data-bs-toggle="dropdown"aria-expanded="false" data-bs-auto-close="outside">
+                <svg viewBox="0 0 28 28" alt="" class="x1lliihq x1k90msu x2h7rmj x1qfuztq x198g3q0" fill="currentColor" height="20" width="20"><path d="M7.847 23.488C9.207 23.488 11.443 23.363 14.467 22.806 13.944 24.228 12.581 25.247 10.98 25.247 9.649 25.247 8.483 24.542 7.825 23.488L7.847 23.488ZM24.923 15.73C25.17 17.002 24.278 18.127 22.27 19.076 21.17 19.595 18.724 20.583 14.684 21.369 11.568 21.974 9.285 22.113 7.848 22.113 7.421 22.113 7.068 22.101 6.79 22.085 4.574 21.958 3.324 21.248 3.077 19.976 2.702 18.049 3.295 17.305 4.278 16.073L4.537 15.748C5.2 14.907 5.459 14.081 5.035 11.902 4.086 7.022 6.284 3.687 11.064 2.753 15.846 1.83 19.134 4.096 20.083 8.977 20.506 11.156 21.056 11.824 21.986 12.355L21.986 12.356 22.348 12.561C23.72 13.335 24.548 13.802 24.923 15.73Z"></path></svg>
+            </div>
+             <!-- avatar -->
+            <div class="align-items-center justify-content-center d-none d-xl-flex">
+                <img src="/frontend-training/images/331547232_1620958051651711_6497135793733581232_n.jpg" class="rounded-circle me-2" alt="avatar"
+                  style="width: 38px; height: 38px; object-fit: cover" />
+                <p class="m-0"></p>
+              </div>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+    
+    <div class="container-fluid">
+        <div class="row justify-content-evenly">
+            <!-- ================= Sidebar ================= -->
+            <div class="col-12 col-lg-3">
+              <div class="d-none d-xxl-block h-100 fixed-top overflow-hidden scrollbar"
+                style="max-width: 360px; width: 100%; z-index: 4">
+                <ul class="navbar-nav mt-4 ms-3 d-flex flex-column pb-5 mb-5" style="padding-top: 56px">
+                  <!-- top -->
+                  <!-- avatar -->
+                  <li class="dropdown-item p-1 rounded">
+                    <a href="#" class=" d-flex align-items-center text-decoration-none text-dark ">
+                      <div class="p-2">
+                        <img src="./images/331547232_1620958051651711_6497135793733581232_n.jpg" alt="avatar"
+                          class="rounded-circle me-2" style="width: 38px; height: 38px; object-fit: cover" />
+                      </div>
+                      <div>
+                        <p class="m-0">Phương Huyền</p>
+                      </div>
+                    </a>
+                  </li>
+                  <!-- top 1 -->
+                  <li class="dropdown-item p-1 rounded">
+                    <a href="#" class="d-flex align-items-center text-decoration-none text-dark
+                        ">
+                      <div class="p-2">
+                        <img src="https://static.xx.fbcdn.net/rsrc.php/v3/yj/r/tSXYIzZlfrS.png" alt="from fb"
+                          class="rounded-circle" style="width: 38px; height: 38px; object-fit: cover" />
+                      </div>
+                      <div>
+                        <p class="m-0">Tìm bạn bè</p>
+                      </div>
+                    </a>
+                  </li>
+                  <!-- top 2 -->
+                  <li class="dropdown-item p-1 rounded">
+                    <a href="#" class=" d-flex align-items-center text-decoration-none text-dark">
+                      <div class="p-2">
+                        <img src="https://static.xx.fbcdn.net/rsrc.php/v3/yj/r/Im_0d7HFH4n.png" alt="from fb"
+                          class="rounded-circle" style="width: 38px; height: 38px; object-fit: cover" />
+                      </div>
+                      <div>
+                        <p class="m-0">Nhóm</p>
+                        <i class="fas fa-circle text-primary" style="font-size: 0.5rem !important"></i>
+                        <span class="fs-7 text-primary"> 1 new</span>
+                      </div>
+                    </a>
+                  </li>
+                  <!-- top 3 -->
+                  <li class="dropdown-item p-1">
+                    <a href="#" class="d-flex align-items-center justify-content-between text-decoration-none text-dark ">
+                      <div class="d-flex align-items-center justify-content-evenly">
+                        <div class="p-2">
+                          <img src="https://static.xx.fbcdn.net/rsrc.php/v3/yj/r/0gH3vbvr8Ee.png" alt="from fb"
+                            class="rounded-circle" style="width: 38px; height: 38px; object-fit: cover" />
+                        </div>
+                        <div>
+                          <p class="m-0">Trang</p>
+                        </div>
+                      </div>
+                    </a>
+                  </li>
+                  <!-- top 4 -->
+                  <li class="dropdown-item p-1">
+                    <a href="#" class=" d-flex align-items-center justify-content-between text-decoration-none text-dark">
+                      <div class="d-flex align-items-center justify-content-evenly">
+                        <div class="p-2">
+                          <img src="https://static.xx.fbcdn.net/rsrc.php/v3/y4/r/MN44Sm-CTHN.png" alt="from fb"
+                            class="rounded-circle" style="width: 38px; height: 38px; object-fit: cover" />
+                        </div>
+                        <div>
+                          <p class="m-0">Marketplace</p>
+                        </div>
+                      </div>
+                    </a>
+                  </li>
+                  <!-- top 5 -->
+                  <li class="dropdown-item p-1">
+                    <a href="#" class=" d-flex align-items-center justify-content-between text-decoration-none text-dark
+                        ">
+                      <div class="d-flex align-items-center justify-content-evenly">
+                        <div class="p-2">
+                          <img src="https://static.xx.fbcdn.net/rsrc.php/v3/y-/r/FhOLTyUFKwf.png" alt="from fb"
+                            class="rounded-circle" style="width: 38px; height: 38px; object-fit: cover" />
+                        </div>
+                        <div>
+                          <p class="m-0">Watch</p>
+                          <i class="fas fa-circle text-primary" style="font-size: 0.5rem !important"></i>
+                          <span class="fs-7 text-primary"> 9+ new videos</span>
+                        </div>
+                      </div>
+                    </a>
+                  </li>
+                  <!-- see more -->
+                  <li class="p-1" type="button">
+                    <div id="accordionFlushExample">
+                      <div>
+                        <!-- see more button -->
+                        <div class="d-flex align-items-center" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne"
+                          aria-expanded="false" aria-controls="flush-collapseOne">
+                          <div class="p-2">
+                            <i class="fas fa-chevron-down rounded-circle p-2"
+                              style="background-color: #d5d5d5 !important"></i>
+                          </div>
+                          <div>
+                            <p class="m-0">Xem thêm</p>
+                          </div>
+                        </div>
+                        <!-- content -->
+                        <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne"
+                          data-bs-parent="#accordionFlushExample">
+                          <div>
+                            <!-- item 1 -->
+                            <div class=" d-flex align-items-center dropdown-item p-0 m-0 ">
+                              <div class="p-2">
+                                <img src="https://static.xx.fbcdn.net/rsrc.php/v3/y3/r/JzYamtSussX.png" alt="from fb" class="rounded-circle" 
+                                    style="
+                                      width: 38px;
+                                      height: 38px;
+                                      object-fit: cover;
+                                    "/>
+                              </div>
+                              <div>
+                                <p class="m-0">Chơi game</p>
+                              </div>
+                            </div>
+                            <!-- item 2 -->
+                            <div class=" d-flex align-items-center dropdown-item p-0 m-0 ">
+                              <div class="p-2">
+                                <img src="https://static.xx.fbcdn.net/rsrc.php/v3/yT/r/02Dy4soPWIa.png" alt="from fb"
+                                  class="rounded-circle" style="
+                                      width: 38px;
+                                      height: 38px;
+                                      object-fit: cover;
+                                    " />
+                              </div>
+                              <div>
+                                <p class="m-0">Gợi ý chỉnh sửa</p>
+                              </div>
+                            </div>
+                            <!-- item 3 -->
+                            <div class=" d-flex align-items-center dropdown-item p-0 m-0">
+                              <div class="p-2">
+                                <img src="https://static.xx.fbcdn.net/rsrc.php/v3/y9/r/DHBHg9MEeSC.png" alt="from fb"
+                                  class="rounded-circle" style="
+                                      width: 38px;
+                                      height: 38px;
+                                      object-fit: cover;
+                                    " />
+                              </div>
+                              <div>
+                                <p class="m-0">Trình quảng cáo</p>
+                              </div>
+                            </div>
+                            <!-- end -->
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <hr class="m-0" />
+                  <!-- shortcuts -->
+                  <!-- heading -->
+                  <div class=" d-flex justify-content-between align-items-center mt-2 text-muted edit-heading">
+                    <h4 class="m-0 pointer" style="font-family: inherit; font-size: 1.0625rem;">Lối tắt của bạn</h4>
+                    <p class="m-0 text-primary me-3 pointer edit-button" type="button" data-bs-toggle="modal"
+                      data-bs-target="#shortCutModal">
+                      Chỉnh sửa
+                    </p>
+                    <!-- modal -->
+                    <div class="modal fade" id="shortCutModal" tabindex="-1" aria-labelledby="shortCutModalLabel"
+                      aria-hidden="true" data-bs-backdrop="false">
+                      <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                          <!-- head -->
+                          <div class="modal-header align-items-center">
+                            <h5 class="text-dark text-center w-100 m-0" id="exampleModalLabel">
+                              chỉnh sửa
+                            </h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                          </div>
+                          <!-- body -->
+                          <div class="modal-body">
+                            <p class="text-muted">
+                              Shortcuts provide quick access to what you do most on
+                              Facebook. Your Shortcuts are sorted automatically, but
+                              you can pin something so it's always shown at the top
+                              or hide it from the list.
+                            </p>
+                            <!-- Search -->
+                            <div class="p-1">
+                              <div class=" input-group-text bg-gray border-0 rounded-pill
+                                  " style="min-height: 40px; min-width: 230px">
+                                <i class="fas fa-search me-2 text-muted"></i>
+                                <input type="text" class="form-control rounded-pill border-0 bg-gray"
+                                  placeholder="Search your Pages, groups, games, and events" />
+                              </div>
+                            </div>
+                            <!-- short-1 -->
+                            <li class="my-1 p-1">
+                              <div class=" d-flex align-items-center justify-content-between text-decoration-none text-dark">
+                                <div class=" d-flex align-items-center justify-content-evenly">
+                                  <div class="p-2">
+                                    <img src="./images/321499630_1576613736190363_8834288896126618285_n.jpg" alt="from fb" class=" rounded border border-1 border-secondary
+                                        " style="
+                                          width: 38px;
+                                          height: 38px;
+                                          object-fit: cover;
+                                        " />
+                                  </div>
+                                  <div>
+                                    <p class="m-0">Yêu thích chụp ảnh và làm mẫu ảnh</p>
+                                  </div>
+                                </div>
+                                <select class="form-select w-50 border-0 bg-gray" aria-label="Default select example">
+                                  <option selected value="1">
+                                    Short Automatically
+                                  </option>
+                                  <option value="2">Pin To Top</option>
+                                  <option value="3">Hide</option>
+                                </select>
+                              </div>
+                            </li>
+                            <!-- short-2 -->
+                            <li class="my-1 p-1">
+                              <div class="d-flex align-items-center justify-content-between text-decoration-none text-dark">
+                                <div class=" d-flex align-items-center justify-content-evenly ">
+                                  <div class="p-2">
+                                    <img src="./images/321499630_1576613736190363_8834288896126618285_n.jpg" alt="from fb" class="
+                                          rounded
+                                          border border-1 border-secondary
+                                        " style="
+                                          width: 38px;
+                                          height: 38px;
+                                          object-fit: cover;
+                                        " />
+                                  </div>
+                                  <div>
+                                    <p class="m-0">Nhiếp ảnh tự do & tìm nháy chụp ảnh</p>
+                                  </div>
+                                </div>
+                                <select class="form-select w-50 border-0 bg-gray" aria-label="Default select example">
+                                  <option selected value="1">
+                                    Short Automatically
+                                  </option>
+                                  <option value="2">Pin To Top</option>
+                                  <option value="3">Hide</option>
+                                </select>
+                              </div>
+                            </li>
+                            <!-- short-3 -->
+                            <li class="my-1 p-1">
+                              <div class="
+                                    d-flex
+                                    align-items-center
+                                    justify-content-between
+                                    text-decoration-none text-dark
+                                  ">
+                                <div class="
+                                      d-flex
+                                      align-items-center
+                                      justify-content-evenly
+                                    ">
+                                  <div class="p-2">
+                                    <img src="./images/321499630_1576613736190363_8834288896126618285_n.jpg" alt="from fb" class="
+                                          rounded
+                                          border border-1 border-secondary
+                                        " style="
+                                          width: 38px;
+                                          height: 38px;
+                                          object-fit: cover;
+                                        " />
+                                  </div>
+                                  <div>
+                                    <p class="m-0">Test</p>
+                                  </div>
+                                </div>
+                                <select class="form-select w-50 border-0 bg-gray" aria-label="Default select example">
+                                  <option selected value="1">
+                                    Short Automatically
+                                  </option>
+                                  <option value="2">Pin To Top</option>
+                                  <option value="3">Hide</option>
+                                </select>
+                              </div>
+                            </li>
+                            <!-- end -->
+                          </div>
+                          <!-- footer -->
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-light text-primary" data-bs-dismiss="modal">
+                              Close
+                            </button>
+                            <button type="button" class="btn btn-primary">
+                              Save changes
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- end -->
+                  </div>
+                  <!-- short 1 -->
+                  <li class="dropdown-item p-1">
+                    <a href="#" class="
+                          d-flex
+                          align-items-center
+                          text-decoration-none text-dark
+                        ">
+                      <div class="p-2">
+                        <img src="./images/321499630_1576613736190363_8834288896126618285_n.jpg" alt="from fb"
+                          class="rounded border border-1 border-secondary"
+                          style="width: 38px; height: 38px; object-fit: cover" />
+                      </div>
+                      <div>
+                        <p class="m-0">Test</p>
+                      </div>
+                    </a>
+                  </li>
+                  <!-- short-2 -->
+                  <li class="dropdown-item p-1">
+                    <a href="" class="
+                          d-flex
+                          align-items-center
+                          text-decoration-none text-dark
+                        ">
+                      <div class="p-2">
+                        <img src="./images/150906964_2853407758214130_3832962539302347122_n.jpg" alt="from fb"
+                          class="rounded border border-1 border-secondary"
+                          style="width: 38px; height: 38px; object-fit: cover" />
+                      </div>
+                      <div>
+                        <p class="m-0">Thích chụp ảnh & tìm phó nháy</p>
+                      </div>
+                    </a>
+                  </li>
+                </ul>
+                </div>
+            </div>
+
+            <div class="col-12 col-lg-6 pg-5">
+              <div class="mt-5 d-flex justify-content-between position-relative">
+                
+              </div>
+            </div>
+             <!--  user contact -->
+             <div class="col-12 col-lg-3">
+              <div
+                class="
+                  d-none d-xxl-block
+                  h-100
+                  fixed-top
+                  end-0
+                  overflow-hidden
+                  scrollbar
+                "
+                style="
+                  max-width: 360px;
+                  width: 100%;
+                  z-index: 4;
+                  padding-top: 56px;
+                  left: initial !important;
+                "
+              >
+                <div class="p-3 mt-4">
+                  <!-- contacts -->
+                  <hr class="m-0" />
+                  <div
+                    class="my-3 d-flex justify-content-between align-items-center"
+                  >
+                    <p class="text-muted fs-5 m-0">Người liên hệ</p>
+                    <!-- icons -->
+                    <div class="text-muted">
+                      <!-- video room -->
+                      <i class="fas fa-video mx-2 pointer" type="button" data-bs-toggle="modal" data-bs-target="#videoRoomD"></i>
+                      <i class="fas fa-search mx-2 pointer" type="button" data-bs-toggle="modal" data-bs-target="#newChat"></i>
+                    </div>
+                  </div>
+                  <!-- friend 1 -->
+                  <li
+                    class="dropdown-item rounded my-2 px-0"
+                    type="button"
+                    data-bs-toggle="modal"
+                    data-bs-target="#singleChat1"
+                  >
+                    <!-- avatar -->
+                    <div
+                      class="d-flex align-items-center mx-2 chat-avatar"
+                      data-bs-custom-class="chat-box"
+                      data-bs-container="body"
+                      data-bs-toggle="popover"
+                      data-bs-placement="left"
+                      data-bs-trigger="hover"
+                      data-bs-content=''
+                      data-bs-html="true"
+                    >
+                      <div class="position-relative">
+                        <img
+                          src="https://source.unsplash.com/random/4"
+                          alt="avatar"
+                          class="rounded-circle me-2"
+                          style="width: 38px; height: 38px; object-fit: cover"
+                        />
+                        <span
+                          class="
+                            position-absolute
+                            bottom-0
+                            translate-middle
+                            border border-light
+                            rounded-circle
+                            bg-success
+                            p-1
+                          "
+                          style="left: 75%"
+                        >
+                          <span class="visually-hidden"></span>
+                        </span>
+                      </div>
+                      <p class="m-0">Việt Hoàng Nhữ</p>
+                    </div>
+                  </li>
+                  <!-- friend 2 -->
+                </div>
+              </div>
+            </div>
+        </div>    
         </div>
     </div>
-
-    <script type="text/javascript" src="bootstrap-5.0.2-dist/js/bootstrap.js"></script>
-</body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+      crossorigin="anonymous"></script>
+    <script src="./custom.js"></script>
+  </body>
 
 </html>
