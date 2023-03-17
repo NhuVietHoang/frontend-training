@@ -4,8 +4,8 @@
 * d-flex: tạo 1 vùng chứa hàng ngang
 
 ## Container
-*  .container : chiều rộng cố định
-* * max-width: 
+###  .container : chiều rộng cố định
+*  max-width: 
     <576px	Small  max-width:100%
     ≥576px	Extra Small   540px
     ≥768px	Medium    720px
